@@ -1,0 +1,39 @@
+plugins {
+	id 'java-library'
+	id "ca.coglinc2.javacc" version "3.0.0"
+	id "idea"
+}
+
+group 'link.remotemaster'
+version '1.0-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+}
+
+compileJjtree {
+	inputDirectory = file('src/main/java/org/nfunk/jep')
+	outputDirectory = file(project.buildDir.absolutePath + '/generated/sources/javacc/org/nfunk/jep')
+}
+compileJavacc {
+	inputDirectory = file(project.buildDir.absolutePath + '/generated/sources/javacc/org/nfunk/jep')
+	outputDirectory = file(project.buildDir.absolutePath + '/generated/sources/javacc/org/nfunk/jep')
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs += project.buildDir.absolutePath + '/generated/sources/javacc'
+		}
+	}
+}
+
+idea {
+	module {
+		generatedSourceDirs += file(project.buildDir.absolutePath + '/generated/sources/javacc')
+	}
+}
+
+dependencies {
+	testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
