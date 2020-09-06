@@ -1,6 +1,7 @@
 plugins {
 	id 'java-library'
 	id "ca.coglinc2.javacc" version "3.0.0"
+	id "maven-publish"
 	id "idea"
 }
 
@@ -31,6 +32,14 @@ sourceSets {
 idea {
 	module {
 		generatedSourceDirs += file(project.buildDir.absolutePath + '/generated/sources/javacc')
+	}
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			from components.java
+		}
 	}
 }
 

@@ -376,6 +376,11 @@ public class JepTest extends TestCase
 		// and hence the broken MMultiply was used.								
 	}
 
+	public void testString() throws Exception {
+		valueTest( "\"hallo\"", "hallo");
+		valueTest( "\"a\"+\",b\"", null);
+	}
+
 	public void testDotInName() throws ParseException, Exception
 	{
 		System.out.println("\nTesting names with dot in them");
