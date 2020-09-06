@@ -274,11 +274,12 @@ TOKENS
 
 <DEFAULT> TOKEN:
 {
-	<INDENTIFIER1: <LETTER1>(<LETTER1>|<DIGIT1>|".")*>
+	<INDENTIFIER1: <TYPER1>(<LETTER1>|<DIGIT1>|".")*>
+	|
+	< TYPER1: ["$", "&", "#" ] >
 	|
 	< #LETTER1:
 	[
-		"\u0024",           // $
 		"\u0041"-"\u005a",  // A - Z
 		"\u005f",           // _
 		"\u0061"-"\u007a",  // a - z
@@ -299,11 +300,12 @@ TOKENS
 
 <NO_DOT_IN_IDENTIFIERS> TOKEN:
 {
-	<INDENTIFIER2: <LETTER2>(<LETTER2>|<DIGIT2>)*>
+	<INDENTIFIER2: <TYPER2>(<LETTER2>|<DIGIT2>)*>
+	|
+	< TYPER2: ["$", "&", "#" ] >
 	|
 	< #LETTER2:
 	[
-		"\u0024",           // $
 		"\u0041"-"\u005a",  // A - Z
 		"\u005f",           // _
 		"\u0061"-"\u007a",  // a - z
