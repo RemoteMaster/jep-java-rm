@@ -158,7 +158,7 @@ public class JEP
 
 		//Ensure errors are reported for the initial expression
 		//e.g. No expression entered
-		parseExpression("");
+		//parseExpression("");
 	}
 
 	/**
